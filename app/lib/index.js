@@ -1,0 +1,1 @@
+module.exports = ['logging', 'views', 'dal', 'middleware', 'params', 'routes'];
