@@ -16,6 +16,6 @@
     },
     "main":"./app/index.js",
     "scripts": {
-        "start":"./app/index.js",
+        "start":"./app/index.js"
     }
 }
