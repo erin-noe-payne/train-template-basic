@@ -17,6 +17,5 @@
     "main":"./app/index.js",
     "scripts": {
         "start":"./app/index.js",
-        "postinstall": "bin/postinstall"
     }
 }
