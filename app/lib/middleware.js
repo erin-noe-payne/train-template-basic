@@ -1,20 +1,9 @@
-var express = require('express'),
-    connect_timeout = require('connect-timeout'),
-    MongoStore = require('connect-mongodb');
+var express = require('express');
 
 // Middleware
 
 module.exports = function (app) {
 
-    // Sessions
-    var mongoStore = new MongoStore({
-        url:app.config.mongodb.uri
-    });
-
-    var session_middleware = express.session({
-        key:app.config.key,
-        store:mongoStore
-    });
 
     // Error handler
     var error_middleware = express.errorHandler({
@@ -23,10 +12,8 @@ module.exports = function (app) {
     });
 
     // Middleware stack for all requests
-    app.use(express['static'](app.set('public')));                      // static files in /public
-    app.use(connect_timeout({ time:app.constants.request_timeout }));   // request timeouts
+    app.use(express['static'](app.get('public')));                      // static files in /public
     app.use(express.cookieParser());                                    // req.cookies
-    app.use(session_middleware);                                        // req.session
     app.use(express.bodyParser());                                      // req.body & req.files
     app.use(express.methodOverride());                                  // '_method' property in body (POST -> DELETE / PUT)
     app.use(app.router);                                                // routes in lib/routes.js

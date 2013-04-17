@@ -1,1 +1,5 @@
-module.exports = ['logging', 'views', 'dal', 'middleware', 'params', 'routes'];
+module.exports = {
+    onInit: [],
+    onSetup: ['views', 'middleware', 'routes'],
+    onStart:[]
+};

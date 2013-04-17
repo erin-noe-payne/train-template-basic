@@ -9,9 +9,4 @@ module.exports = function (app) {
     app.engine('hbs', hbs.express3({
         partialsDir:path.join(app.dir, "/views/partials")
     }));
-
-    // Static locals
-    app.locals({
-        title:app.constants.title
-    });
 };

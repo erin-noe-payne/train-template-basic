@@ -8,7 +8,7 @@ var dir = process.cwd();
 var src = path.join(dir, '/config/default.env.json'),
     dst = path.join(dir, '/.env.json');
 
-path.exists(dst, function(exists) {
+fs.exists(dst, function(exists) {
   if (exists) {
     console.log('Environment config (.env.js) found.');
   }
